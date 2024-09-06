@@ -42,7 +42,7 @@ def norm_latex_str(value, uncertainty, unit):
 
     # Join the array to form the value and uncertainty strings
     val_str = (''.join(array_val[:33]) + '.' + ''.join(array_val[33:])).rstrip('.')
-    unc_str = (''.join(array_unc[:33]).rstrip('.') + '.' + ''.join(array_unc[33:])).rstrip('.')
+    unc_str = (''.join(array_unc[:33]) + '.' + ''.join(array_unc[33:])).rstrip('.')
     
     return f"\\qty{{{val_str} \pm {unc_str}}}{{{unit}}}"
 
