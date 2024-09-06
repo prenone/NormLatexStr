@@ -10,18 +10,20 @@ This package automatically chooses the right number of significant figures for t
 
 ## Example usage
 
-```
-print(norm_latex_str(12.34, 0.12, r'\volt'))
-print(norm_latex_str(5.67, 0.05, r'\meter'))
-print(norm_latex_str(0.891, 0.009, r'\second'))
-print(norm_latex_str(3.45, 0.03, r'\ampere'))
-print(norm_latex_str(78.9, 0.8, r'\watt'))
-print(norm_latex_str(0.0045, 0.0001, r'\tesla'))
-print(norm_latex_str(150.0, 2.0, r'\newton'))
-print(norm_latex_str(0.002, 0.0003, r'\coulomb'))
-print(norm_latex_str(65.3, 1.2, r'\joule'))
-print(norm_latex_str(9.81, 0.1, r'\meter \per \second^2'))
-print(norm_latex_str(1.602, 0.001, r'\electronvolt'))
+```python
+import NormLatexStr as nls
+
+print(nls.norm_latex_str(12.34, 0.12, r'\volt'))
+print(nls.norm_latex_str(5.67, 0.05, r'\meter'))
+print(nls.norm_latex_str(0.891, 0.009, r'\second'))
+print(nls.norm_latex_str(3.45, 0.03, r'\ampere'))
+print(nls.norm_latex_str(78.9, 0.8, r'\watt'))
+print(nls.norm_latex_str(0.0045, 0.0001, r'\tesla'))
+print(nls.norm_latex_str(150.0, 2.0, r'\newton'))
+print(nls.norm_latex_str(0.002, 0.0003, r'\coulomb'))
+print(nls.norm_latex_str(65.3, 1.2, r'\joule'))
+print(nls.norm_latex_str(9.81, 0.1, r'\meter \per \second^2'))
+print(nls.norm_latex_str(1.602, 0.001, r'\electronvolt'))
 
 # \qty{12.34 \pm 0.12}{\volt}
 # \qty{5.67 \pm 0.05}{\meter}
