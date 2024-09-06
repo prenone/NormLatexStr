@@ -6,7 +6,7 @@ This package automatically chooses the right number of significant figures for t
 
 ## Installation
 
-pip install -e "git+https://github.com/prenone/NormLatexStr"
+`pip install -e "git+https://github.com/prenone/NormLatexStr"`
 
 ## Example usage
 
