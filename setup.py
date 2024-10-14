@@ -7,8 +7,5 @@ setup(
     author_email='achille@achilleme.com',
     description='A package to format numbers with their uncertainties in LaTeX using the SIunitx package.',
     packages=find_packages(),
-    install_requires=[
-        'math'
-    ]
 )
 
