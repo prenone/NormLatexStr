@@ -27,8 +27,16 @@ def norm_latex_str(value, uncertainty, unit):
     array_val = fill_array(val_final)
     
     # Remove leading zeros before the decimal point
-    array_unc[:32] = ['' if el == '0' else el for el in array_unc[:32]]
-    array_val[:32] = ['' if el == '0' else el for el in array_val[:32]]
+    def remove_leading_zeros(array):
+        for i in range(0, 32):
+            if array[i] == '0':
+                array[i] = ''
+            else:
+                break
+        return array
+
+    array_unc[:32] = remove_leading_zeros(array_unc)
+    array_val[:32] = remove_leading_zeros(array_val)
 
     # Find the first significant digit index and trim unnecessary uncertainty digits
     first_sig_dig_index = next((i for i, el in enumerate(array_unc) if el not in ['', '0']), -1)
@@ -44,5 +52,4 @@ def norm_latex_str(value, uncertainty, unit):
     val_str = (''.join(array_val[:33]) + '.' + ''.join(array_val[33:])).rstrip('.')
     unc_str = (''.join(array_unc[:33]).rstrip('.') + '.' + ''.join(array_unc[33:])).rstrip('.')
     
-    return f"\\qty{{{val_str} \pm {unc_str}}}{{{unit}}}"
-
+    return f"\\qty{{{val_str} \\pm {unc_str}}}{{{unit}}}"
