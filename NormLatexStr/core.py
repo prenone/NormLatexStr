@@ -12,7 +12,7 @@ def norm_latex_str(value, uncertainty, unit):
     val_man_round = round(val_man, sig_digs - 1 + (val_exp - unc_exp))
     
     unc_final = unc_man_round * 10 ** unc_exp
-    val_final = val_man_round * 10 ** val_exp
+    val_final = round(val_man_round * 10 ** val_exp, 11)
 
     def fill_array(n):
         # Create an array with the integer and decimal parts placed correctly
