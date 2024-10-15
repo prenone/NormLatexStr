@@ -1,6 +1,6 @@
 import math
 
-def norm_latex_str(value, uncertainty, unit):
+def norm_latex_str(value, uncertainty, unit, hide_uncertainty=False):
     # Calculate exponent and mantissa for uncertainty and value
     unc_exp = int(math.floor(math.log10(abs(uncertainty))))
     unc_man = uncertainty * 10 ** -unc_exp
@@ -51,5 +51,8 @@ def norm_latex_str(value, uncertainty, unit):
     # Join the array to form the value and uncertainty strings
     val_str = (''.join(array_val[:33]) + '.' + ''.join(array_val[33:])).rstrip('.')
     unc_str = (''.join(array_unc[:33]) + '.' + ''.join(array_unc[33:])).rstrip('.')
-    
-    return f"\\qty{{{val_str} \\pm {unc_str}}}{{{unit}}}"
+
+    if hide_uncertainty:
+        return f"\\qty{{{val_str}}}{{{unit}}}"
+    else:
+        return f"\\qty{{{val_str} \\pm {unc_str}}}{{{unit}}}"
