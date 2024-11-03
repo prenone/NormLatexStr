@@ -7,7 +7,7 @@ def norm_latex_str(value, uncertainty, unit, hide_uncertainty=False):
     sig_digs = 2 if unc_man < 2 else 1
     unc_man_round = round(unc_man, sig_digs - 1)
     
-    val_exp = int(math.floor(math.log10(abs(value))))
+    val_exp = int(math.floor(math.log10(abs(value)))) if value != 0 else 0
     val_man = value * 10 ** -val_exp
     val_man_round = round(val_man, sig_digs - 1 + (val_exp - unc_exp))
     
